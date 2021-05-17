@@ -16,6 +16,10 @@ export const Card = ({ data }: any) => {
     justify-content: space-between;
     gap: 0.5em;
 
+    h2{
+      margin-block-start: .6em;
+    }
+  
     p {
       padding: 0.3em;
       height: fit-content;
