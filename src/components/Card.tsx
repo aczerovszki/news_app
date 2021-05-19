@@ -1,7 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import {cardData} from '../interfaces/model';
 
-export const Card = ({ data }: any) => {
+interface Props {
+  [key: string]:cardData;
+} 
+
+export const Card = ({ data }:Props) => {
   const CardBox = styled.div`
     display: flex;
     flex-direction: column;

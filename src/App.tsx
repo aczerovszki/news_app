@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { Card } from "./components/Card";
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
+import { Card } from './components/Card';
+import  Server from './Server';
+import styled from 'styled-components';
 
 const App = () => {
   const [sources, setSources] = useState([]);
-  const url =
-    "https://newsapi.org/v2/everything?" +
-    "q=Apple&" +
-    "from=2021-05-05&" +
-    "sortBy=popularity&" +
-    "apiKey=8f916adb954c4f1194294d4b552bf852";
-
-  const getSources = async () => {
-    const res = await fetch(url);
-    const data = await res.json();
-    const articles = data.articles;
-    console.log(articles);
-    setSources(articles);
-  };
-
+  const articles = async () =>{
+    setSources(await Server())
+  } 
+  
   useEffect(() => {
-    getSources();
+    articles()
+  
   }, []);
 
   const Header = styled.h1`
