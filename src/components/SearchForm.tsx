@@ -38,6 +38,7 @@ export const SearchForm = (props:any) =>{
               text-decoration: none;
               transition: 0.3s;
               background: repeating-linear-gradient(180deg, #404040, #000000 100px);
+              outline: none;
         }
     `
   

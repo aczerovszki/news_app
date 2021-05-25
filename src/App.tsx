@@ -9,7 +9,7 @@ import {Login} from './components/Login'
 const App = () => {
   const [articles, setArticles] = useState([]);
   const [sources, setSources] = useState([]);
-  const [option, setOption] = useState('apple');
+  const [option, setOption] = useState('bbc-news');
   const [show, setShow] = useState(false);
  
   const getSources = async () =>{
