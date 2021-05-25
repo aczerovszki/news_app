@@ -15,7 +15,7 @@ const App = () => {
   const getSources = async () =>{
     setSources(await Server().getSources())
   } 
-  const getArticles = async () =>{
+  const getArticles = async (option:any) =>{
     setArticles(await Server().getArticles(option))
   } 
 
@@ -23,13 +23,13 @@ const App = () => {
     event.preventDefault();
     console.log(option)
     setOption(option)
-    getArticles()
+    getArticles(option)
   }
 
 
   useEffect(() => {
     getSources()
-    getArticles()
+    getArticles(option)
    
   
   }, []);
