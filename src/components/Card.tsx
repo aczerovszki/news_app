@@ -6,7 +6,7 @@ interface Props {
   [key: string]:cardData;
 } 
 
-export const Card = ({ data }:Props) => {
+export const Card = ({ article }:Props) => {
   const CardBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -62,12 +62,12 @@ export const Card = ({ data }:Props) => {
   return (
     <CardBox>
       <CardHeader>
-        <h2>{data.title}</h2>
-        <p>{new Date(data.publishedAt).toLocaleDateString()}</p>
+        <h2>{article.title}</h2>
+        <p>{new Date(article.publishedAt).toLocaleDateString()}</p>
       </CardHeader>
-      <CardImage src={data.urlToImage} alt="" />
-      <CardText>{data.description}</CardText>
-      <CardButton href={data.url} target="_blank">
+      <CardImage src={article.urlToImage} alt="" />
+      <CardText>{article.description}</CardText>
+      <CardButton href={article.url} target="_blank">
         Read More
       </CardButton>
     </CardBox>
