@@ -59,11 +59,15 @@ export const Card = ({ article }:Props) => {
     background: repeating-linear-gradient(180deg, #404040, #000000 100px);
   `;
 
+  const getPublishedDate = () =>{
+    return new Date(article.publishedAt).toLocaleDateString()
+  }
+
   return (
     <CardBox>
       <CardHeader>
         <h2>{article.title}</h2>
-        <p>{new Date(article.publishedAt).toLocaleDateString()}</p>
+        <p>{getPublishedDate()}</p>
       </CardHeader>
       <CardImage src={article.urlToImage} alt="" />
       <CardText>{article.description}</CardText>

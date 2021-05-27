@@ -1,37 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from './components/Card';
-import  Server from './Server';
+import Server from './Server';
 import styled from 'styled-components';
-import { SearchForm } from './components/SearchForm'
+import { SearchForm } from './components/SearchForm';
 import Modal from './components/Modal';
-import {Login} from './components/Login'
+import { Login } from './components/Login';
 
 const App = () => {
   const [articles, setArticles] = useState([]);
   const [sources, setSources] = useState([]);
-  const [option, setOption] = useState('bbc-news');
+  const [option, setOption] = useState("bbc-news");
   const [show, setShow] = useState(false);
- 
-  const getSources = async () =>{
-    setSources(await Server().getSources())
-  } 
-  const getArticles = async (option:any) =>{
-    setArticles(await Server().getArticles(option))
-  } 
 
-  const handleSubmission = (event:any, option:any) =>{
+  const getSources = async () => {
+    setSources(await Server().getSources());
+  };
+  const getArticles = async (option: any) => {
+    setArticles(await Server().getArticles(option));
+  };
+
+  const handleSubmission = (event: any, option: any) => {
     event.preventDefault();
-    console.log(option)
-    setOption(option)
-    getArticles(option)
-  }
-
+    setOption(option);
+    getArticles(option);
+  };
 
   useEffect(() => {
-    getSources()
-    getArticles(option)
-   
-  
+    getSources();
+    getArticles(option);
   }, []);
 
   const Header = styled.h1`
@@ -60,14 +56,20 @@ const App = () => {
     text-decoration: none;
     transition: 0.3s;
     background: repeating-linear-gradient(180deg, #404040, #000000 100px);
-`
+  `;
 
   return (
     <>
-      <Button onClick={() => setShow(true)} id="myBtn">Login</Button>
-      <Header>Latest {option.charAt(0).toUpperCase() + option.slice(1)} News</Header>
-      <SearchForm sources={sources} onSubmit={handleSubmission}/>
-      <Modal show={show} onClose={() => setShow(false)}><Login></Login></Modal>
+      <Button onClick={() => setShow(true)} id="myBtn">
+        Login
+      </Button>
+      <Header>
+        Latest {option.charAt(0).toUpperCase() + option.slice(1)} News
+      </Header>
+      <SearchForm sources={sources} onSubmit={handleSubmission} />
+      <Modal show={show} onClose={() => setShow(false)}>
+        <Login></Login>
+      </Modal>
       <Container>
         {articles.map((article) => {
           return <Card article={article} />;
