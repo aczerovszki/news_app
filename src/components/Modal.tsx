@@ -32,6 +32,14 @@ const Modal = (props: any) => {
     border: 1px solid #ccc;
     box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 30%);
     border-radius: 20px;
+
+    @media (max-width: 1280px) {
+      width: 40%;
+    }
+    
+    @media (max-width: 768px) {
+      width: 60%;
+    }
   `;
 
   const CloseBtn = styled.span`
