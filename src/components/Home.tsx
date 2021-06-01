@@ -3,8 +3,14 @@ import styled from 'styled-components';
 import { SearchForm } from './SearchForm';
 import { Card } from './Card';
 
+interface Props {
+    option: string,
+    sources: Array<object>,
+    handleSubmission: Function,
+    articles: Array<object>
+}
 
-export const Home = (props:any) => {
+export const Home = (props:Props) => {
   const Header = styled.h1`
     text-align: center;
     font-size: 38px;

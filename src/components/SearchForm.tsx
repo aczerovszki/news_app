@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-export const SearchForm = (props: any) => {
+interface Props {
+  onSubmit: Function,
+  sources: Array<object>
+}
+
+export const SearchForm = (props:Props) => {
   const [option, setOption] = useState('');
 
   const Form = styled.form`

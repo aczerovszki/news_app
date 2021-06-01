@@ -1,4 +1,4 @@
-export interface cardData {
+export interface Article {
     title: string;
     publishedAt: Date
     urlToImage: string;

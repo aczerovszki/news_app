@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Server from './Server';
-import styled from 'styled-components';
 import Modal from './components/Modal';
 import { Login } from './components/Login';
 import Nav from './components/Nav';
 import { About } from './components/About';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useHistory,
-  useRouteMatch,
-} from 'react-router-dom';
+import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import { Home } from './components/Home';
 
 const App = () => {
@@ -19,8 +12,9 @@ const App = () => {
   const [sources, setSources] = useState([]);
   const [option, setOption] = useState('bbc-news');
   const [show, setShow] = useState(false);
-  /*   const history = useHistory();
-  const match = useRouteMatch(); */
+  const [path, setPath] = useState('');
+  const history = useHistory();
+  const location = useLocation();
 
   const getSources = async () => {
     setSources(await Server().getSources());
@@ -37,11 +31,12 @@ const App = () => {
 
   const handleModal = () => {
     setShow(true);
-    /*  history.push(match.url) */
+    setPath(location.pathname);
   };
 
   const handleClose = () => {
     setShow(false);
+    history.goBack();
   };
 
   useEffect(() => {
@@ -51,28 +46,35 @@ const App = () => {
 
   return (
     <>
-      <Router>
-        <Nav handleModal={handleModal} />
-        <Switch>
-          <Route path='/about'>
-            <Modal show={show} onClose={handleClose}>
-              <Login />
-            </Modal>
+      <Nav handleModal={handleModal} />
+      <Switch>
+        <Route path='/about'>
+          <About />
+        </Route>
+        <Route path='/login'>
+          <Modal show={show} onClose={handleClose}>
+            <Login />
+          </Modal>
+          {path === '/about' ? (
             <About />
-          </Route>
-          <Route exact path='/'>
-            <Modal show={show} onClose={handleClose}>
-              <Login />
-            </Modal>
+          ) : (
             <Home
               option={option}
               sources={sources}
               handleSubmission={handleSubmission}
               articles={articles}
             />
-          </Route>
-        </Switch>
-      </Router>
+          )}
+        </Route>
+        <Route exact path='/'>
+          <Home
+            option={option}
+            sources={sources}
+            handleSubmission={handleSubmission}
+            articles={articles}
+          />
+        </Route>
+      </Switch>
     </>
   );
 };

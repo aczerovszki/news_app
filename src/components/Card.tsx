@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import {cardData} from '../interfaces/model';
+import {Article} from '../interfaces/model';
 
 interface Props {
-  [key: string]:cardData;
+  article: Article;
 } 
 
-export const Card = ({ article }:Props) => {
+export const Card = (props:Props) => {
   const CardBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -60,18 +60,18 @@ export const Card = ({ article }:Props) => {
   `;
 
   const getPublishedDate = () =>{
-    return new Date(article.publishedAt).toLocaleDateString()
+    return new Date(props.article.publishedAt).toLocaleDateString()
   }
 
   return (
     <CardBox>
       <CardHeader>
-        <h2>{article.title}</h2>
+        <h2>{props.article.title}</h2>
         <p>{getPublishedDate()}</p>
       </CardHeader>
-      <CardImage src={article.urlToImage} alt="" />
-      <CardText>{article.description}</CardText>
-      <CardButton href={article.url} target="_blank">
+      <CardImage src={props.article.urlToImage} alt="" />
+      <CardText>{props.article.description}</CardText>
+      <CardButton href={props.article.url} target="_blank">
         Read More
       </CardButton>
     </CardBox>

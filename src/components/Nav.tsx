@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const Nav = (props:any) => {
 const [isOpen, setIsOpen] = useState(false);
-const [show, setShow] = useState(false)
 
 interface Menu{
     isOpen: boolean
@@ -98,9 +97,9 @@ background: repeating-linear-gradient(180deg, #404040, #000000 100px);
                 <Link to="/about">
                     <MenuItem>About</MenuItem>
                 </Link>
-               
+                <Link to="/login">
                     <MenuItem><Button onClick={props.handleModal} >Log in</Button></MenuItem>
-                
+                </Link>
             </Menu>
             </Navbar>
         </>
