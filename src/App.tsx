@@ -25,8 +25,11 @@ const App = () => {
 
   const handleSubmission = (event: any, option: any) => {
     event.preventDefault();
-    setOption(option);
-    getArticles(option);
+    if(option !== ''){
+      setOption(option);
+      getArticles(option);
+    }
+  
   };
 
   const handleModal = () => {

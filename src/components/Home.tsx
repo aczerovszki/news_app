@@ -4,10 +4,10 @@ import { SearchForm } from './SearchForm';
 import { Card } from './Card';
 
 interface Props {
-    option: string,
-    sources: Array<object>,
-    handleSubmission: Function,
-    articles: Array<object>
+  option: string,
+  sources: Array<object>,
+  handleSubmission: Function,
+  articles: Array<object>
 }
 
 export const Home = (props:Props) => {

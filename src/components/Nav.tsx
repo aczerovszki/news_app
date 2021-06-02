@@ -7,7 +7,7 @@ const Nav = (props:any) => {
 const [isOpen, setIsOpen] = useState(false);
 
 interface Menu{
-    isOpen: boolean
+  isOpen: boolean
 }
 
 const MenuItem = styled.p`
@@ -67,18 +67,19 @@ const Hamburger = styled.div`
 `;
 
 const Button = styled.button`
-:hover {
+  :hover {
   background: repeating-linear-gradient(180deg, #404040, #000000 100px);
   box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 30%);
-}
-padding: 0.7em 3.3em;
-border-radius: 1em;
-border: none;
-text-align: center;
-color: #fff;
-text-decoration: none;
-transition: 0.3s;
-background: repeating-linear-gradient(180deg, #404040, #000000 100px);
+  }
+  padding: 0.7em 3.3em;
+  border-radius: 1em;
+  border: none;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+  background: repeating-linear-gradient(180deg, #404040, #000000 100px);
+  outline: none;
 `;
 
 

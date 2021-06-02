@@ -26,7 +26,7 @@ export const Login = () => {
     }
 
     button{
-        :hover {
+       :hover {
             background: repeating-linear-gradient(180deg, #404040, #000000 100px);
             box-shadow: 2px 2px 6px 0px rgb(0 0 0 / 30%);
             }
@@ -40,7 +40,7 @@ export const Login = () => {
             text-decoration: none;
             transition: 0.3s;
             background: repeating-linear-gradient(180deg, #404040, #000000 100px);
-
+            outline: none;
     `;
 
   return (
